@@ -121,9 +121,7 @@
             transition: transform 0.3s ease;
             background: linear-gradient(135deg, #202065, #764ba2);
             
-            /* THE FIX: Forces the PC browser to render the image perfectly sharp */
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
+            /* Anti-blur fix for the hover animation */
             transform: translateZ(0);
             backface-visibility: hidden;
         }
