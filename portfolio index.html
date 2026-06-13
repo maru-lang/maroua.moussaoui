@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #ec4899;
+            --dark: #0f172a; --light: #f8fafc; --gray: #64748b;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        body {
+            font-family: 'Inter', 'Tajawal', 'Noto Sans Arabic', sans-serif;
+            background: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden;
+        }
+
+        /* ===== ANIMATED BACKGROUND - RANDOM MOVING GRADIENT ===== */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+            background: #0a0a1a;
+        }
+
+        /* Multiple animated gradient blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            will-change: transform, left, top;
+        }
+
+        .blob-1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.8) 0%, rgba(99, 102, 241, 0) 70%);
+            animation: blobMove1 12s ease-in-out infinite;
+        }
+
+        .blob-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.7) 0%, rgba(236, 72, 153, 0) 70%);
+            animation: blobMove2 15s ease-in-out infinite;
+        }
+
+        .blob-3 {
+            width: 450px; height: 450px;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.7) 0%, rgba(118, 75, 162, 0) 70%);
+            animation: blobMove3 18s ease-in-out infinite;
+        }
+
+        .blob-4 {
+            width: 550px; height: 550px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.6) 0%, rgba(102, 126, 234, 0) 70%);
+            animation: blobMove4 14s ease-in-out infinite;
+        }
+
+        .blob-5 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(240, 147, 251, 0.5) 0%, rgba(240, 147, 251, 0) 70%);
+            animation: blobMove5 16s ease-in-out infinite;
+        }
+
+        @keyframes blobMove1 {
+            0% { left: 10%; top: 20%; transform: scale(1); }
+            25% { left: 60%; top: 60%; transform: scale(1.3); }
+            50% { left: 30%; top: 80%; transform: scale(0.8); }
+            75% { left: 70%; top: 30%; transform: scale(1.2); }
+            100% { left: 10%; top: 20%; transform: scale(1); }
+        }
+
+        @keyframes blobMove2 {
+            0% { left: 70%; top: 10%; transform: scale(1); }
+            25% { left: 20%; top: 50%; transform: scale(1.2); }
+            50% { left: 50%; top: 20%; transform: scale(0.9); }
+            75% { left: 10%; top: 70%; transform: scale(1.1); }
+            100% { left: 70%; top: 10%; transform: scale(1); }
+        }
+
+        @keyframes blobMove3 {
+            0% { left: 40%; top: 70%; transform: scale(1); }
+            25% { left: 80%; top: 40%; transform: scale(0.8); }
+            50% { left: 20%; top: 10%; transform: scale(1.3); }
+            75% { left: 60%; top: 60%; transform: scale(1); }
+            100% { left: 40%; top: 70%; transform: scale(1); }
+        }
+
+        @keyframes blobMove4 {
+            0% { left: 80%; top: 80%; transform: scale(1); }
+            25% { left: 30%; top: 30%; transform: scale(1.1); }
+            50% { left: 70%; top: 50%; transform: scale(0.9); }
+            75% { left: 20%; top: 80%; transform: scale(1.2); }
+            100% { left: 80%; top: 80%; transform: scale(1); }
+        }
+
+        @keyframes blobMove5 {
+            0% { left: 20%; top: 40%; transform: scale(1); }
+            25% { left: 50%; top: 80%; transform: scale(0.7); }
+            50% { left: 80%; top: 30%; transform: scale(1.2); }
+            75% { left: 40%; top: 10%; transform: scale(1); }
+            100% { left: 20%; top: 40%; transform: scale(1); }
+        }
+
+        /* Floating particles */
+        .particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1; pointer-events: none; }
+        .particle { position: absolute; width: 3px; height: 3px; background: rgba(255, 255, 255, 0.4); border-radius: 50%; animation: floatUp linear infinite; }
+        .particle:nth-child(1) { left: 15%; animation-duration: 18s; animation-delay: 0s; width: 5px; height: 5px; }
+        .particle:nth-child(2) { left: 35%; animation-duration: 22s; animation-delay: 3s; }
+        .particle:nth-child(3) { left: 55%; animation-duration: 20s; animation-delay: 6s; width: 6px; height: 6px; }
+        .particle:nth-child(4) { left: 75%; animation-duration: 25s; animation-delay: 2s; }
+        .particle:nth-child(5) { left: 25%; animation-duration: 16s; animation-delay: 5s; width: 4px; height: 4px; }
+        .particle:nth-child(6) { left: 85%; animation-duration: 24s; animation-delay: 8s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+        }
+
+        .hero-content { text-align: center; z-index: 2; padding: 2rem; max-width: 700px; position: relative; }
+
+        /* Profile image - YOUR PHOTO */
+        .profile-img {
+            width: 150px; height: 150px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.35);
+            object-fit: cover; margin-bottom: 1.5rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        .profile-img:hover { transform: scale(1.05); }
+
+        .hero h1 { font-family: 'Inter', 'Tajawal', sans-serif; font-size: 2.8rem; font-weight: 800; color: white; margin-bottom: 0.4rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); letter-spacing: -0.5px; }
+
+        /* Title - stacked one under one */
+        .title-stack { margin-bottom: 1.2rem; }
+        .title-line { font-family: 'Inter', 'Tajawal', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.8; }
+
+        /* Social links - ABOVE BIO */
+        .social-links { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.5rem; }
+        .social-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            color: white; text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+        .social-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.5); }
+        .social-btn img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+
+        /* Bio - SHORT (you will change it) */
+        .bio-container {
+            max-width: 600px; margin: 0 auto 1.8rem; padding: 1.5rem;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .bio-english { font-family: 'Inter', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.92); line-height: 1.8; margin-bottom: 0.8rem; font-weight: 400; }
+        .bio-divider { width: 50px; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); margin: 0.8rem auto; border-radius: 2px; }
+        .bio-arabic { font-family: 'Tajawal', 'Noto Sans Arabic', sans-serif; font-size: 1.05rem; color: rgba(255,255,255,0.92); line-height: 2; font-weight: 400; direction: rtl; }
+
+        /* Work buttons */
+        .hero-work-buttons { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
+        .hero-work-btn {
+            padding: 0.9rem 2rem;
+            background: rgba(255,255,255,0.1);
+            color: white; border: 1.5px solid rgba(255,255,255,0.3);
+            border-radius: 50px; font-size: 0.95rem; font-weight: 600;
+            cursor: pointer; transition: all 0.3s ease;
+            text-decoration: none; display: inline-flex;
+            align-items: center; gap: 0.5rem;
+            font-family: 'Inter', 'Tajawal', sans-serif;
+        }
+        .hero-work-btn:hover { background: white; color: var(--primary); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-color: white; }
+
+        /* Work pages */
+        .work-page { display: none; min-height: 100vh; padding: 3rem 1.5rem; max-width: 1200px; margin: 0 auto; animation: fadeIn 0.4s ease; }
+        .work-page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .page-header { text-align: center; margin-bottom: 2.5rem; }
+        .page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--dark); }
+        .page-subtitle { color: var(--gray); font-size: 1rem; }
+        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.3rem; background: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-bottom: 1.5rem; font-family: 'Inter', 'Tajawal', sans-serif; text-decoration: none; }
+        .back-btn:hover { background: var(--primary); color: white; transform: translateX(-3px); }
+
+        /* Projects grid */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+        .project-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.35s ease; cursor: pointer; position: relative; }
+        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .project-image { width: 100%; height: 220px; object-fit: cover; transition: transform 0.35s ease; }
+        .project-card:hover .project-image { transform: scale(1.03); }
+        .project-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(99, 102, 241, 0.88); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.25s ease; }
+        .project-card:hover .project-overlay { opacity: 1; }
+        .view-btn { padding: 0.8rem 1.8rem; background: white; color: var(--primary); border: none; border-radius: 50px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transform: translateY(15px); transition: transform 0.25s ease; font-family: 'Inter', 'Tajawal', sans-serif; }
+        .project-card:hover .view-btn { transform: translateY(0); }
+        .project-info { padding: 1.2rem; }
+        .project-tag { display: inline-block; padding: 0.25rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.4rem; }
+        .tag-wp { background: rgba(99, 102, 241, 0.1); color: var(--primary); }
+        .tag-canva { background: rgba(236, 72, 153, 0.1); color: var(--secondary); }
+        .project-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--dark); }
+        .project-desc { color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+
+        /* Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.25s ease; padding: 1.5rem; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: white; border-radius: 16px; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; transform: scale(0.92); transition: transform 0.25s ease; }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+        .modal-close { position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px; border-radius: 50%; background: rgba(0,0,0,0.08); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--dark); transition: all 0.25s ease; z-index: 10; }
+        .modal-close:hover { background: var(--primary); color: white; }
+        .modal-image { width: 100%; height: 320px; object-fit: cover; border-radius: 16px 16px 0 0; }
+        .modal-body { padding: 1.5rem; }
+        .modal-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--dark); }
+        .modal-tags { display: flex; gap: 0.4rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .modal-description { color: var(--gray); line-height: 1.7; margin-bottom: 1rem; font-size: 0.95rem; }
+        .modal-details { background: var(--light); padding: 1.2rem; border-radius: 12px; margin-bottom: 1rem; }
+        .detail-row { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; }
+        .detail-row:last-child { border-bottom: none; }
+        .detail-label { font-weight: 600; color: var(--dark); }
+        .detail-value { color: var(--gray); }
+        .modal-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+        .btn-primary { padding: 0.8rem 1.6rem; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.25s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Inter', 'Tajawal', sans-serif; font-size: 0.9rem; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35); }
+        .btn-secondary { padding: 0.8rem 1.6rem; background: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.25s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Inter', 'Tajawal', sans-serif; font-size: 0.9rem; }
+        .btn-secondary:hover { background: rgba(99, 102, 241, 0.08); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .title-line { font-size: 0.95rem; }
+            .profile-img { width: 130px; height: 130px; }
+            .bio-container { padding: 1.2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .modal-content { max-height: 95vh; }
+            .modal-image { height: 200px; }
+            .hero-work-buttons { flex-direction: column; align-items: center; }
+            .social-btn { width: 40px; height: 40px; }
+            .social-btn img { width: 18px; height: 18px; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="home">
+
+    <!-- RANDOM MOVING GRADIENT BLOBS -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
+
+    <!-- Floating particles -->
+    <div class="particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+
+    <div class="hero-content">
+
+        <!-- [CHANGE 1] YOUR PHOTO -->
+        <img src="https://github.com/maru-lang/maroua.moussaoui/blob/main/IMG_1657.webp?raw=true" 
+             alt="Maroua Moussaoui" class="profile-img" id="profileImg">
+
+        <!-- [CHANGE 2] YOUR NAME -->
+        <h1 id="heroName">Maroua Moussaoui</h1>
+
+        <!-- [CHANGE 3] YOUR TITLE - One under one -->
+        <div class="title-stack">
+            <div class="title-line">WordPress Designer</div>
+            <div class="title-line">Canva Creative</div>
+        </div>
+
+        <!-- [CHANGE 4] YOUR SOCIAL MEDIA LINKS -->
+        <div class="social-links">
+            <a href="https://instagram.com/yourusername" class="social-btn" title="Instagram">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-white-icon.png" alt="Instagram">
+            </a>
+            <a href="https://facebook.com/yourusername" class="social-btn" title="Facebook">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/facebook-app-round-white-icon.png" alt="Facebook">
+            </a>
+            <a href="https://wa.me/1234567890" class="social-btn" title="WhatsApp">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/whatsapp-white-icon.png" alt="WhatsApp">
+            </a>
+            <a href="https://linkedin.com/in/yourusername" class="social-btn" title="LinkedIn">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png" alt="LinkedIn">
+            </a>
+        </div>
+
+        <!-- [CHANGE 5] SHORT BIO - Change this text to your own -->
+        <div class="bio-container">
+            <div class="bio-content">
+                <p class="bio-english" id="heroBio">
+                    I design websites and visuals that help brands grow.
+                </p>
+                <div class="bio-divider"></div>
+                <p class="bio-arabic" id="heroBioAr">
+                    أصمم مواقع وتصاميم بصرية تساعد العلامات التجارية على النمو.
+                </p>
+            </div>
+        </div>
+
+        <!-- Work buttons -->
+        <div class="hero-work-buttons">
+            <a href="#" class="hero-work-btn" onclick="showPage('wordpress')">
+                <span>⚙️</span> Web Design
+            </a>
+            <a href="#" class="hero-work-btn" onclick="showPage('canva')">
+                <span>🎨</span> Canva Design
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== WORDPRESS PROJECTS PAGE ===== -->
+<section class="work-page" id="wordpressPage">
+    <a href="#" class="back-btn" onclick="showPage('home')">
+        <span>←</span> Back to Home
+    </a>
+    <div class="page-header">
+        <h2 class="page-title">⚙️ Web Design Projects</h2>
+        <p class="page-subtitle">Custom WordPress websites built with care and precision</p>
+    </div>
+    <div class="projects-grid" id="wordpressGrid"></div>
+</section>
+
+
+<!-- ===== CANVA PROJECTS PAGE ===== -->
+<section class="work-page" id="canvaPage">
+    <a href="#" class="back-btn" onclick="showPage('home')">
+        <span>←</span> Back to Home
+    </a>
+    <div class="page-header">
+        <h2 class="page-title">🎨 Canva Design Projects</h2>
+        <p class="page-subtitle">Visual designs that tell your brand story</p>
+    </div>
+    <div class="projects-grid" id="canvaGrid"></div>
+</section>
+
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <img src="" alt="" class="modal-image" id="modalImage">
+        <div class="modal-body">
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-tags" id="modalTags"></div>
+            <p class="modal-description" id="modalDescription"></p>
+            <div class="modal-details" id="modalDetails"></div>
+            <div class="modal-actions">
+                <a href="#" class="btn-primary" id="modalLiveLink" target="_blank">
+                    <span>🔗</span> View Live Site
+                </a>
+                <a href="#" class="btn-secondary" id="modalCaseStudy">
+                    <span>📄</span> View Case Study
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+
+const projects = {
+    wordpress: [
+        {
+            id: 1,
+            title: 'E-Commerce Fashion Store',
+            description: 'A modern WooCommerce website for a boutique fashion brand featuring custom product filters, wishlist functionality, and a seamless checkout experience.',
+            image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop',
+            tags: ['WooCommerce', 'Custom Theme', 'Responsive'],
+            client: 'Fashion Boutique Co.',
+            duration: '3 weeks',
+            tools: 'WordPress, WooCommerce, Elementor, CSS',
+            result: '40% increase in online sales',
+            liveLink: '#',
+            caseStudy: '#'
+        },
+        {
+            id: 2,
+            title: 'Restaurant & Booking Website',
+            description: 'An elegant restaurant website with online table reservation system, digital menu with photos, and integration with Google Maps for directions.',
+            image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
+            tags: ['Booking System', 'Custom Post Types', 'SEO'],
+            client: 'Bella Vista Restaurant',
+            duration: '2 weeks',
+            tools: 'WordPress, Custom PHP, ACF, JavaScript',
+            result: '60% increase in online reservations',
+            liveLink: '#',
+            caseStudy: '#'
+        },
+        {
+            id: 3,
+            title: 'Portfolio for Creative Agency',
+            description: 'A stunning portfolio website for a creative agency with animated project showcases, team profiles, and a custom blog section.',
+            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+            tags: ['Custom Blocks', 'Animation', 'Performance'],
+            client: 'Pixel Studio Agency',
+            duration: '4 weeks',
+            tools: 'WordPress, Gutenberg, GSAP, Tailwind',
+            result: 'Page load under 2 seconds',
+            liveLink: '#',
+            caseStudy: '#'
+        },
+        {
+            id: 4,
+            title: 'Real Estate Listing Platform',
+            description: 'A comprehensive real estate platform with advanced property search, map integration, agent profiles, and mortgage calculator.',
+            image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
+            tags: ['Custom Plugin', 'Maps API', 'Search Filters'],
+            client: 'Dream Homes Realty',
+            duration: '5 weeks',
+            tools: 'WordPress, Custom Plugin, Google Maps API, React',
+            result: '200+ properties listed in first month',
+            liveLink: '#',
+            caseStudy: '#'
+        }
+    ],
+    canva: [
+        {
+            id: 5,
+            title: 'Social Media Brand Kit',
+            description: 'A complete social media brand kit including 30+ Instagram templates, story highlights, LinkedIn banners, and Pinterest graphics for a wellness brand.',
+            image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop',
+            tags: ['Brand Kit', 'Instagram', 'Templates'],
+            client: 'Mindful Wellness Co.',
+            duration: '1 week',
+            tools: 'Canva Pro, Brand Kit, Color Theory',
+            result: '50% increase in engagement',
+            liveLink: '#',
+            caseStudy: '#'
+        },
+        {
+            id: 6,
+            title: 'E-Book & Lead Magnet Design',
+            description: 'Professional e-book design with custom illustrations, infographics, and branded elements for a digital marketing course lead magnet.',
+            image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&h=600&fit=crop',
+            tags: ['E-Book', 'Infographics', 'Lead Generation'],
+            client: 'Digital Marketing Pro',
+            duration: '5 days',
+            tools: 'Canva Pro, Illustrator, Typography',
+            result: '2,000+ downloads in first month',
+            liveLink: '#',
+            caseStudy: '#'
+        },
+        {
+            id: 7,
+            title: 'Event Marketing Materials',
+            description: 'Complete event branding package including flyers, posters, tickets, social media countdown graphics, and presentation slides for a tech conference.',
+            image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
+            tags: ['Event Branding', 'Print & Digital', 'Presentations'],
+            client: 'TechConf 2024',
+            duration: '1 week',
+            tools: 'Canva Pro, Print Setup, Color Profiles',
+            result: 'Sold out 500 tickets in 48 hours',
+            liveLink: '#',
+            caseStudy: '#'
+        },
+        {
+            id: 8,
+            title: 'YouTube Thumbnail Series',
+            description: 'A cohesive series of 50+ YouTube thumbnails with consistent branding, eye-catching typography, and optimized click-through rate design.',
+            image: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=600&fit=crop',
+            tags: ['YouTube', 'Thumbnails', 'Branding'],
+            client: 'Tech Creator Channel',
+            duration: '3 days',
+            tools: 'Canva Pro, Photo Editing, Typography',
+            result: '35% increase in CTR',
+            liveLink: '#',
+            caseStudy: '#'
+        }
+    ]
+};
+
+function renderProjects(type, containerId) {
+    const container = document.getElementById(containerId);
+    const projectList = projects[type];
+    container.innerHTML = projectList.map(project => `
+        <div class="project-card" onclick="openModal('${type}', ${project.id})">
+            <div style="position: relative; overflow: hidden;">
+                <img src="${project.image}" alt="${project.title}" class="project-image" loading="lazy">
+                <div class="project-overlay">
+                    <button class="view-btn">👁 Preview Project</button>
+                </div>
+            </div>
+            <div class="project-info">
+                <span class="project-tag ${type === 'wordpress' ? 'tag-wp' : 'tag-canva'}">
+                    ${type === 'wordpress' ? '⚙️ WordPress' : '🎨 Canva'}
+                </span>
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-desc">${project.description.substring(0, 100)}...</p>
+            </div>
+        </div>
+    `).join('');
+}
+
+function showPage(page) {
+    document.querySelectorAll('.work-page').forEach(p => p.classList.remove('active'));
+    if (page === 'home') {
+        document.getElementById('home').style.display = 'flex';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+        document.getElementById('home').style.display = 'none';
+        document.getElementById(page + 'Page').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+function openModal(type, projectId) {
+    const project = projects[type].find(p => p.id === projectId);
+    if (!project) return;
+    document.getElementById('modalImage').src = project.image;
+    document.getElementById('modalImage').alt = project.title;
+    document.getElementById('modalTitle').textContent = project.title;
+    document.getElementById('modalDescription').textContent = project.description;
+    document.getElementById('modalTags').innerHTML = project.tags.map(tag => 
+        `<span class="project-tag ${type === 'wordpress' ? 'tag-wp' : 'tag-canva'}">${tag}</span>`
+    ).join('');
+    document.getElementById('modalDetails').innerHTML = `
+        <div class="detail-row"><span class="detail-label">Client</span><span class="detail-value">${project.client}</span></div>
+        <div class="detail-row"><span class="detail-label">Duration</span><span class="detail-value">${project.duration}</span></div>
+        <div class="detail-row"><span class="detail-label">Tools Used</span><span class="detail-value">${project.tools}</span></div>
+        <div class="detail-row"><span class="detail-label">Result</span><span class="detail-value" style="color: var(--primary); font-weight: 600;">${project.result}</span></div>
+    `;
+    document.getElementById('modalLiveLink').href = project.liveLink;
+    document.getElementById('modalCaseStudy').href = project.caseStudy;
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(event) {
+    if (event && event.target !== event.currentTarget) return;
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+renderProjects('wordpress', 'wordpressGrid');
+renderProjects('canva', 'canvaGrid');
+
+document.querySelectorAll('a[href="#"]').forEach(link => {
+    link.addEventListener('click', function(e) { e.preventDefault(); });
+});
+</script>
+</body>
+</html>
