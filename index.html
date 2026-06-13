@@ -33,86 +33,62 @@
             background: #0a0a1a;
         }
 
-        /* Hardware-Accelerated Blob Classes */
+/* Bulletproof Animated Blobs */
         .blob {
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
-            opacity: 0.85; 
-            will-change: transform;
-            backface-visibility: hidden;
-            transform: translateZ(0);
+            opacity: 0.8; 
         }
 
         .blob-1 {
             width: 600px; height: 600px;
             background: radial-gradient(circle, #202065 0%, rgba(32, 32, 101, 0) 70%);
-            left: -5%; top: -5%;
-            animation: blobMove1 12s ease-in-out infinite alternate;
+            left: -10%; top: -10%;
+            animation: move1 15s ease-in-out infinite alternate;
         }
 
         .blob-2 {
             width: 500px; height: 500px;
             background: radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, rgba(236, 72, 153, 0) 70%);
             right: -5%; top: 10%;
-            animation: blobMove2 15s ease-in-out infinite alternate;
+            animation: move2 18s ease-in-out infinite alternate;
         }
 
         .blob-3 {
             width: 450px; height: 450px;
             background: radial-gradient(circle, rgba(32, 32, 101, 0.8) 0%, rgba(32, 32, 101, 0) 70%);
-            left: 15%; bottom: -10%;
-            animation: blobMove3 18s ease-in-out infinite alternate;
+            left: 20%; bottom: -10%;
+            animation: move3 20s ease-in-out infinite alternate;
         }
 
         .blob-4 {
             width: 550px; height: 550px;
             background: radial-gradient(circle, rgba(102, 126, 234, 0.4) 0%, rgba(102, 126, 234, 0) 70%);
             right: 15%; bottom: -5%;
-            animation: blobMove4 14s ease-in-out infinite alternate;
+            animation: move4 16s ease-in-out infinite alternate;
         }
 
-        .blob-5 {
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, #202065 0%, rgba(32, 32, 101, 0) 70%);
-            left: 35%; top: 30%;
-            animation: blobMove5 16s ease-in-out infinite alternate;
+        /* Standard 2D Keyframes that work on all browsers */
+        @keyframes move1 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(300px, 150px) scale(1.1); }
+            100% { transform: translate(100px, 300px) scale(1); }
         }
-
-/* Lightning-Fast RANDOM Keyframes */
-        @keyframes blobMove1 {
-            0%   { transform: translate3d(0vw, 0vh, 0) scale(1); }
-            33%  { transform: translate3d(25vw, 15vh, 0) scale(1.2); }
-            66%  { transform: translate3d(-10vw, 35vh, 0) scale(0.8); }
-            100% { transform: translate3d(0vw, 0vh, 0) scale(1); }
+        @keyframes move2 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-250px, 200px) scale(1.2); }
+            100% { transform: translate(-400px, 50px) scale(0.9); }
         }
-        
-        @keyframes blobMove2 {
-            0%   { transform: translate3d(0vw, 0vh, 0) scale(1); }
-            33%  { transform: translate3d(-30vw, 20vh, 0) scale(1.1); }
-            66%  { transform: translate3d(-10vw, -25vh, 0) scale(0.9); }
-            100% { transform: translate3d(0vw, 0vh, 0) scale(1); }
+        @keyframes move3 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(200px, -300px) scale(0.8); }
+            100% { transform: translate(400px, -100px) scale(1.1); }
         }
-        
-        @keyframes blobMove3 {
-            0%   { transform: translate3d(0vw, 0vh, 0) scale(1); }
-            33%  { transform: translate3d(35vw, -20vh, 0) scale(0.9); }
-            66%  { transform: translate3d(15vw, -40vh, 0) scale(1.3); }
-            100% { transform: translate3d(0vw, 0vh, 0) scale(1); }
-        }
-        
-        @keyframes blobMove4 {
-            0%   { transform: translate3d(0vw, 0vh, 0) scale(1); }
-            33%  { transform: translate3d(-20vw, -30vh, 0) scale(1.2); }
-            66%  { transform: translate3d(20vw, -10vh, 0) scale(0.8); }
-            100% { transform: translate3d(0vw, 0vh, 0) scale(1); }
-        }
-        
-        @keyframes blobMove5 {
-            0%   { transform: translate3d(0vw, 0vh, 0) scale(1); }
-            33%  { transform: translate3d(15vw, 30vh, 0) scale(1.4); }
-            66%  { transform: translate3d(-25vw, 15vh, 0) scale(0.8); }
-            100% { transform: translate3d(0vw, 0vh, 0) scale(1); }
+        @keyframes move4 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-300px, -200px) scale(1.1); }
+            100% { transform: translate(-100px, -400px) scale(1); }
         }
 
         /* Floating particles */
@@ -286,18 +262,18 @@
         </div>
 
         <!-- SOCIAL LINKS (Pointed to local files instead of hotlinking) -->
-        <div class="social-links">
+       <div class="social-links">
             <a href="https://instagram.com/yourusername" class="social-btn" title="Instagram">
-                <img src="instagram-icon.png" alt="Instagram">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-white-icon.png" alt="Instagram">
             </a>
             <a href="https://facebook.com/yourusername" class="social-btn" title="Facebook">
-                <img src="facebook-icon.png" alt="Facebook">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/facebook-app-round-white-icon.png" alt="Facebook">
             </a>
             <a href="https://wa.me/1234567890" class="social-btn" title="WhatsApp">
-                <img src="whatsapp-icon.png" alt="WhatsApp">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/whatsapp-white-icon.png" alt="WhatsApp">
             </a>
             <a href="https://linkedin.com/in/yourusername" class="social-btn" title="LinkedIn">
-                <img src="linkedin-icon.png" alt="LinkedIn">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png" alt="LinkedIn">
             </a>
         </div>
 
