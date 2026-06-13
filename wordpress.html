@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design Projects | Maroua Moussaoui</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #202065; --primary-dark: #121245; --secondary: #ec4899;
+            --dark: #0f172a; --light: #f8fafc; --gray: #64748b;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        body {
+            font-family: 'Inter', 'Tajawal', sans-serif;
+            background: var(--light); color: var(--dark); line-height: 1.6;
+        }
+
+        .work-page { padding: 3rem 1.5rem; max-width: 1200px; margin: 0 auto; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .page-header { text-align: center; margin-bottom: 2.5rem; }
+        .page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--dark); }
+        .page-subtitle { color: var(--gray); font-size: 1rem; }
+        
+        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.3rem; background: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-bottom: 1.5rem; text-decoration: none; }
+        .back-btn:hover { background: var(--primary); color: white; transform: translateX(-3px); }
+
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+        .project-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.35s ease; cursor: pointer; position: relative; }
+        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .project-image { width: 100%; height: 220px; object-fit: cover; transition: transform 0.35s ease; }
+        .project-card:hover .project-image { transform: scale(1.03); }
+        .project-info { padding: 1.2rem; }
+        .project-tag { display: inline-block; padding: 0.25rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.4rem; background: rgba(32, 32, 101, 0.1); color: var(--primary); }
+        .project-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--dark); }
+        .project-desc { color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<section class="work-page">
+    <a href="index.html" class="back-btn">
+        <span>←</span> Back to Home
+    </a>
+    
+    <div class="page-header">
+        <h2 class="page-title">⚙️ Web Design Projects</h2>
+        <p class="page-subtitle">Comprehensive Full Website Designs built with care and precision</p>
+    </div>
+    
+    <div class="projects-grid" id="wordpressGrid"></div>
+</section>
+
+<script>
+const projects = [
+    {
+        id: 1,
+        title: 'E-Commerce Fashion Store',
+        description: 'A complete, modern WooCommerce website for a boutique brand featuring custom product filters, wishlist functionality, and a seamless checkout experience.',
+        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop',
+        tags: ['WooCommerce', 'Full Website', 'Responsive']
+    },
+    {
+        id: 2,
+        title: 'Restaurant & Booking Website',
+        description: 'An elegant, multi-page restaurant website with an online table reservation system, digital menu, and Google Maps integration.',
+        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
+        tags: ['Booking System', 'Full Website', 'SEO']
+    },
+    {
+        id: 3,
+        title: 'Creative Agency Portfolio',
+        description: 'A stunning, fast-loading portfolio website for a creative agency with animated project showcases, service pages, and a custom blog section.',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+        tags: ['Performance', 'Full Website', 'Animation']
+    }
+];
+
+function renderProjects() {
+    const container = document.getElementById('wordpressGrid');
+    container.innerHTML = projects.map(project => `
+        <div class="project-card">
+            <div style="position: relative; overflow: hidden;">
+                <img src="${project.image}" alt="${project.title}" class="project-image" loading="lazy">
+            </div>
+            <div class="project-info">
+                <span class="project-tag">⚙️ WordPress</span>
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-desc">${project.description}</p>
+            </div>
+        </div>
+    `).join('');
+}
+
+renderProjects();
+</script>
+
+</body>
+</html>
