@@ -3,103 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Projects | Maroua Moussaoui</title>
+    <title>Maroua Moussaoui | High-Converting Web & Brand Design</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #202065; --primary-dark: #121245; --secondary: #ec4899;
-            --dark: #0f172a; --light: #f8fafc; --gray: #64748b;
-            --card-bg: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        body {
-            font-family: 'Inter', 'Tajawal', sans-serif;
-            background: var(--light); color: var(--dark); line-height: 1.6;
+            --primary: #202065;
+            --primary-light: #2d2d86;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --gray-900: #1e293b;
+            --gray-600: #475569;
+            --gray-200: #e2e8f0;
+            --light: #f8fafc;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        .work-page { padding: 3rem 1.5rem; max-width: 1200px; margin: 0 auto; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        .page-header { text-align: center; margin-bottom: 2.5rem; }
-        .page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--dark); }
-        .page-subtitle { color: var(--gray); font-size: 1rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--gray-900); line-height: 1.6; overflow-x: hidden; }
+        .arabic { font-family: 'Noto Sans Arabic', sans-serif; direction: rtl; }
+
+        /* Typography & Layout */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        h1, h2, h3 { color: var(--dark); line-height: 1.2; letter-spacing: -0.02em; }
+        .section-padding { padding: 6rem 0; }
         
-        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.3rem; background: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-bottom: 1.5rem; text-decoration: none; }
-        .back-btn:hover { background: var(--primary); color: white; transform: translateX(-3px); }
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1rem; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 14px rgba(32, 32, 101, 0.3); }
+        .btn-primary:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(32, 32, 101, 0.4); }
+        .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline:hover { background: rgba(32, 32, 101, 0.05); transform: translateY(-2px); }
 
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-        .project-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.35s ease; cursor: pointer; position: relative; }
-        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-        .project-image { width: 100%; height: 220px; object-fit: cover; transition: transform 0.35s ease; }
-        .project-card:hover .project-image { transform: scale(1.03); }
-        .project-info { padding: 1.2rem; }
-        .project-tag { display: inline-block; padding: 0.25rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.4rem; background: rgba(32, 32, 101, 0.1); color: var(--primary); }
-        .project-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--dark); }
-        .project-desc { color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+        /* ===== HERO SECTION ===== */
+        .hero { min-height: 90vh; display: flex; align-items: center; background: white; position: relative; border-bottom: 1px solid var(--gray-200); }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+        .hero-tag { display: inline-block; padding: 0.4rem 1rem; background: rgba(32, 32, 101, 0.1); color: var(--primary); border-radius: 50px; font-weight: 600; font-size: 0.875rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.25rem; color: var(--gray-600); margin-bottom: 2rem; max-width: 500px; }
+        .hero-actions { display: flex; gap: 1rem; }
+        
+        .profile-container { position: relative; }
+        .profile-img { width: 100%; max-width: 400px; aspect-ratio: 1/1; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-xl); image-rendering: crisp-edges; }
+        .experience-badge { position: absolute; bottom: -20px; left: -20px; background: white; padding: 1.5rem; border-radius: 16px; box-shadow: var(--shadow-xl); display: flex; align-items: center; gap: 1rem; }
+        .badge-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); line-height: 1; }
+        .badge-text { font-size: 0.875rem; color: var(--gray-600); font-weight: 600; line-height: 1.2; text-transform: uppercase; }
+
+        /* ===== SOCIAL PROOF / VALUE BANNER ===== */
+        .value-banner { background: var(--primary); color: white; padding: 3rem 0; text-align: center; }
+        .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .value-item h3 { color: white; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .value-item p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+        /* ===== FEATURED WORK (Responsive Mockups) ===== */
+        .section-header { text-align: center; margin-bottom: 4rem; max-width: 600px; margin-inline: auto; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .section-header p { color: var(--gray-600); font-size: 1.1rem; }
+
+        .case-study { background: white; border-radius: 24px; padding: 4rem; margin-bottom: 4rem; box-shadow: var(--shadow-md); display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; border: 1px solid var(--gray-200); }
+        .case-study:nth-child(even) { grid-template-columns: 1.2fr 1fr; }
+        .case-study:nth-child(even) .case-content { order: 2; }
+        
+        .case-content h3 { font-size: 2rem; margin-bottom: 1rem; }
+        .case-desc { color: var(--gray-600); font-size: 1.1rem; margin-bottom: 2rem; }
+        
+        /* Persuasive Results Box */
+        .results-box { background: var(--light); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid var(--primary); }
+        .results-box h4 { font-size: 0.9rem; text-transform: uppercase; color: var(--gray-600); margin-bottom: 0.5rem; letter-spacing: 1px; }
+        .results-box p { font-weight: 600; color: var(--dark); font-size: 1.1rem; }
+        
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .tag { padding: 0.4rem 1rem; background: var(--gray-200); color: var(--gray-900); border-radius: 50px; font-size: 0.85rem; font-weight: 500; }
+
+        /* The Device Mockup System (PC + Mobile) */
+        .mockup-container { position: relative; width: 100%; padding-bottom: 15%; }
+        
+        .laptop-mockup { width: 90%; background: #222; border-radius: 12px 12px 0 0; padding: 12px 12px 0 12px; box-shadow: var(--shadow-xl); position: relative; z-index: 1; margin-bottom: -5%; }
+        .laptop-screen { width: 100%; aspect-ratio: 16/10; background: white; overflow: hidden; border-radius: 4px 4px 0 0; }
+        .laptop-screen img { width: 100%; height: auto; object-fit: cover; }
+        .laptop-base { width: 100%; height: 12px; background: #cbd5e1; border-radius: 0 0 12px 12px; position: relative; z-index: 1; }
+        .laptop-base::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 20%; height: 4px; background: #94a3b8; border-radius: 0 0 4px 4px; }
+
+        .phone-mockup { position: absolute; bottom: -10%; right: 0; width: 28%; background: #111; border-radius: 24px; padding: 8px; box-shadow: -10px 10px 30px rgba(0,0,0,0.25); z-index: 2; border: 2px solid #444; }
+        .phone-screen { width: 100%; aspect-ratio: 9/19; background: white; overflow: hidden; border-radius: 18px; }
+        .phone-screen img { width: 100%; height: auto; object-fit: cover; }
+        .phone-notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 40%; height: 12px; background: #111; border-radius: 0 0 8px 8px; z-index: 3; }
+
+        /* ===== SERVICES ===== */
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .service-card { background: white; padding: 3rem; border-radius: 24px; box-shadow: var(--shadow-md); border: 1px solid var(--gray-200); transition: transform 0.3s ease; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+        .service-icon { width: 60px; height: 60px; background: rgba(32, 32, 101, 0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .service-card p { color: var(--gray-600); margin-bottom: 1.5rem; }
+
+        /* CTA Section */
+        .cta-section { background: var(--dark); color: white; text-align: center; border-radius: 24px; padding: 5rem 2rem; margin-top: 4rem; }
+        .cta-section h2 { color: white; font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .cta-section p { color: var(--gray-200); font-size: 1.2rem; margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto; }
+
+        @media (max-width: 968px) {
+            .hero-grid, .case-study, .services-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .case-study { padding: 2rem; }
+            .case-study:nth-child(even) .case-content { order: -1; }
+            .hero h1 { font-size: 2.8rem; }
+            .value-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .phone-mockup { width: 35%; right: -5%; }
+        }
     </style>
 </head>
 <body>
 
-<section class="work-page">
-    <a href="index.html" class="back-btn">
-        <span>←</span> Back to Home
-    </a>
-    
-    <div class="page-header">
-        <h2 class="page-title">⚙️ Web Design Projects</h2>
-        <p class="page-subtitle">Comprehensive Full Website Designs built with care and precision</p>
-    </div>
-    
-    <div class="projects-grid" id="wordpressGrid"></div>
-</section>
-
-<script>
-const projects = [
-    {
-        id: 1,
-        title: 'E-Commerce Fashion Store',
-        description: 'A complete, modern WooCommerce website for a boutique brand featuring custom product filters, wishlist functionality, and a seamless checkout experience.',
-        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop',
-        tags: ['WooCommerce', 'Full Website', 'Responsive']
-    },
-    {
-        id: 2,
-        title: 'Restaurant & Booking Website',
-        description: 'An elegant, multi-page restaurant website with an online table reservation system, digital menu, and Google Maps integration.',
-        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
-        tags: ['Booking System', 'Full Website', 'SEO']
-    },
-    {
-        id: 3,
-        title: 'Creative Agency Portfolio',
-        description: 'A stunning, fast-loading portfolio website for a creative agency with animated project showcases, service pages, and a custom blog section.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-        tags: ['Performance', 'Full Website', 'Animation']
-    }
-];
-
-function renderProjects() {
-    const container = document.getElementById('wordpressGrid');
-    container.innerHTML = projects.map(project => `
-        <div class="project-card">
-            <div style="position: relative; overflow: hidden;">
-                <img src="${project.image}" alt="${project.title}" class="project-image" loading="lazy">
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-tag">Available for Freelance Projects</span>
+                <h1>Strategic Web Design That <span>Drives Growth.</span></h1>
+                <p>I design and build premium, fully-responsive WordPress websites and visual brand identities that turn your visitors into loyal customers.</p>
+                <div class="hero-actions">
+                    <a href="#work" class="btn btn-primary">View Case Studies</a>
+                    <a href="#contact" class="btn btn-outline">Let's Talk</a>
+                </div>
             </div>
-            <div class="project-info">
-                <span class="project-tag">⚙️ WordPress</span>
-                <h3 class="project-title">${project.title}</h3>
-                <p class="project-desc">${project.description}</p>
+            <div class="profile-container">
+                <img src="profile-square.png" alt="Maroua Moussaoui" class="profile-img">
+                <div class="experience-badge">
+                    <span class="badge-number">100%</span>
+                    <span class="badge-text">Responsive<br>Designs</span>
+                </div>
             </div>
         </div>
-    `).join('');
-}
+    </section>
 
-renderProjects();
-</script>
+    <section class="value-banner">
+        <div class="container value-grid">
+            <div class="value-item">
+                <h3>Conversion Focused</h3>
+                <p>Designs engineered to guide users towards making a purchase or booking.</p>
+            </div>
+            <div class="value-item">
+                <h3>Mobile-First Approach</h3>
+                <p>Flawless performance and aesthetics on smartphones, tablets, and desktops.</p>
+            </div>
+            <div class="value-item">
+                <h3>Tailored Branding</h3>
+                <p>Unique visual identities that make your business stand out from the competition.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light" id="work">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Case Studies</h2>
+                <p>See how I've helped businesses establish a powerful online presence with responsive, high-performance websites.</p>
+            </div>
+
+            <div class="case-study">
+                <div class="case-content">
+                    <div class="tags">
+                        <span class="tag">E-Commerce</span>
+                        <span class="tag">WooCommerce</span>
+                        <span class="tag">Brand Identity</span>
+                    </div>
+                    <h3>Marjanastore</h3>
+                    <p class="case-desc">A complete, modern e-commerce platform for a modest fashion brand. The goal was to create a seamless shopping experience for hijabs and abayas with a luxurious, trustworthy aesthetic.</p>
+                    
+                    <div class="results-box">
+                        <h4>The Solution</h4>
+                        <p>Custom product filtering, localized payment gateways, and a mobile-optimized checkout flow resulting in a frictionless user experience.</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">Visit Live Site</a>
+                </div>
+                
+                <div class="mockup-container">
+                    <div class="laptop-mockup">
+                        <div class="laptop-screen">
+                            <img src="marjana-desktop.jpg" alt="Marjanastore Desktop View" onerror="this.src='https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&h=500&fit=crop'">
+                        </div>
+                    </div>
+                    <div class="laptop-base"></div>
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <img src="marjana-mobile.jpg" alt="Marjanastore Mobile View" onerror="this.src='https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=300&h=600&fit=crop'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study">
+                <div class="case-content">
+                    <div class="tags">
+                        <span class="tag">Corporate Website</span>
+                        <span class="tag">Custom Design</span>
+                        <span class="tag">SEO Optimized</span>
+                    </div>
+                    <h3>Creative Agency Hub</h3>
+                    <p class="case-desc">A stunning, fast-loading portfolio website designed to showcase professional services and capture high-ticket client leads.</p>
+                    
+                    <div class="results-box">
+                        <h4>The Solution</h4>
+                        <p>Implemented an asymmetrical grid layout with dynamic scroll animations to keep visitors engaged, paired with clear, persuasive Call-to-Actions.</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">Visit Live Site</a>
+                </div>
+                
+                <div class="mockup-container">
+                    <div class="laptop-mockup">
+                        <div class="laptop-screen">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop" alt="Agency Desktop">
+                        </div>
+                    </div>
+                    <div class="laptop-base"></div>
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=600&fit=crop" alt="Agency Mobile">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>How I Can Help You</h2>
+                <p>I provide end-to-end design solutions to elevate your brand.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Full Website Design</h3>
+                    <p>From strategic wireframing to the final launch, I build custom WordPress websites (using Elementor & Astra) tailored specifically to your business goals. Fast, secure, and easy for you to manage.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Brand Identity & Visuals</h3>
+                    <p>Beyond websites, I create cohesive visual assets using Canva Pro. From professional social media kits to e-books and marketing materials, ensuring your brand looks premium across all platforms.</p>
+                </div>
+            </div>
+
+            <div class="cta-section" id="contact">
+                <h2>Ready to elevate your online presence?</h2>
+                <p>Let's discuss your project requirements and create a strategic design plan that aligns with your business goals.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:your.email@example.com" class="btn btn-primary" style="background: white; color: var(--dark);">Email Me Directly</a>
+                    <a href="https://wa.me/1234567890" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;">Message on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
