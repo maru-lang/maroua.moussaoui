@@ -309,16 +309,7 @@
 
 
 <!-- ===== WORDPRESS PROJECTS PAGE ===== -->
-<section class="work-page" id="wordpressPage">
-    <a href="#" class="back-btn" onclick="showPage('home')">
-        <span>←</span> Back to Home
-    </a>
-    <div class="page-header">
-        <h2 class="page-title">⚙️ Web Design Projects</h2>
-        <p class="page-subtitle">Custom WordPress websites built with care and precision</p>
-    </div>
-    <div class="projects-grid" id="wordpressGrid"></div>
-</section>
+
 
 
 <!-- ===== CANVA PROJECTS PAGE ===== -->
@@ -535,7 +526,6 @@ function closeModal(event) {
 
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-renderProjects('wordpress', 'wordpressGrid');
 renderProjects('canva', 'canvaGrid');
 
 document.querySelectorAll('a[href="#"]').forEach(link => {
