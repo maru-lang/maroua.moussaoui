@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>Maroua Moussaoui | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -21,93 +21,32 @@
             background: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden;
         }
 
-        /* ===== ANIMATED BACKGROUND - RANDOM MOVING GRADIENT ===== */
+        /* ===== ANIMATED BACKGROUND ===== */
         .hero {
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
             position: relative; overflow: hidden;
             background: #0a0a1a;
         }
 
-        /* Multiple animated gradient blobs */
         .blob {
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
             opacity: 0.6;
-            will-change: transform, left, top;
+            will-change: transform;
         }
+        .blob-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(99, 102, 241, 0.8) 0%, rgba(99, 102, 241, 0) 70%); animation: blobMove1 12s ease-in-out infinite; }
+        .blob-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(236, 72, 153, 0.7) 0%, rgba(236, 72, 153, 0) 70%); animation: blobMove2 15s ease-in-out infinite; }
+        .blob-3 { width: 450px; height: 450px; background: radial-gradient(circle, rgba(118, 75, 162, 0.7) 0%, rgba(118, 75, 162, 0) 70%); animation: blobMove3 18s ease-in-out infinite; }
+        .blob-4 { width: 550px; height: 550px; background: radial-gradient(circle, rgba(102, 126, 234, 0.6) 0%, rgba(102, 126, 234, 0) 70%); animation: blobMove4 14s ease-in-out infinite; }
+        .blob-5 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(240, 147, 251, 0.5) 0%, rgba(240, 147, 251, 0) 70%); animation: blobMove5 16s ease-in-out infinite; }
 
-        .blob-1 {
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.8) 0%, rgba(99, 102, 241, 0) 70%);
-            animation: blobMove1 12s ease-in-out infinite;
-        }
+        @keyframes blobMove1 { 0% { left: 10%; top: 20%; transform: scale(1); } 25% { left: 60%; top: 60%; transform: scale(1.3); } 50% { left: 30%; top: 80%; transform: scale(0.8); } 75% { left: 70%; top: 30%; transform: scale(1.2); } 100% { left: 10%; top: 20%; transform: scale(1); } }
+        @keyframes blobMove2 { 0% { left: 70%; top: 10%; transform: scale(1); } 25% { left: 20%; top: 50%; transform: scale(1.2); } 50% { left: 50%; top: 20%; transform: scale(0.9); } 75% { left: 10%; top: 70%; transform: scale(1.1); } 100% { left: 70%; top: 10%; transform: scale(1); } }
+        @keyframes blobMove3 { 0% { left: 40%; top: 70%; transform: scale(1); } 25% { left: 80%; top: 40%; transform: scale(0.8); } 50% { left: 20%; top: 10%; transform: scale(1.3); } 75% { left: 60%; top: 60%; transform: scale(1); } 100% { left: 40%; top: 70%; transform: scale(1); } }
+        @keyframes blobMove4 { 0% { left: 80%; top: 80%; transform: scale(1); } 25% { left: 30%; top: 30%; transform: scale(1.1); } 50% { left: 70%; top: 50%; transform: scale(0.9); } 75% { left: 20%; top: 80%; transform: scale(1.2); } 100% { left: 80%; top: 80%; transform: scale(1); } }
+        @keyframes blobMove5 { 0% { left: 20%; top: 40%; transform: scale(1); } 25% { left: 50%; top: 80%; transform: scale(0.7); } 50% { left: 80%; top: 30%; transform: scale(1.2); } 75% { left: 40%; top: 10%; transform: scale(1); } 100% { left: 20%; top: 40%; transform: scale(1); } }
 
-        .blob-2 {
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.7) 0%, rgba(236, 72, 153, 0) 70%);
-            animation: blobMove2 15s ease-in-out infinite;
-        }
-
-        .blob-3 {
-            width: 450px; height: 450px;
-            background: radial-gradient(circle, rgba(118, 75, 162, 0.7) 0%, rgba(118, 75, 162, 0) 70%);
-            animation: blobMove3 18s ease-in-out infinite;
-        }
-
-        .blob-4 {
-            width: 550px; height: 550px;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.6) 0%, rgba(102, 126, 234, 0) 70%);
-            animation: blobMove4 14s ease-in-out infinite;
-        }
-
-        .blob-5 {
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(240, 147, 251, 0.5) 0%, rgba(240, 147, 251, 0) 70%);
-            animation: blobMove5 16s ease-in-out infinite;
-        }
-
-        @keyframes blobMove1 {
-            0% { left: 10%; top: 20%; transform: scale(1); }
-            25% { left: 60%; top: 60%; transform: scale(1.3); }
-            50% { left: 30%; top: 80%; transform: scale(0.8); }
-            75% { left: 70%; top: 30%; transform: scale(1.2); }
-            100% { left: 10%; top: 20%; transform: scale(1); }
-        }
-
-        @keyframes blobMove2 {
-            0% { left: 70%; top: 10%; transform: scale(1); }
-            25% { left: 20%; top: 50%; transform: scale(1.2); }
-            50% { left: 50%; top: 20%; transform: scale(0.9); }
-            75% { left: 10%; top: 70%; transform: scale(1.1); }
-            100% { left: 70%; top: 10%; transform: scale(1); }
-        }
-
-        @keyframes blobMove3 {
-            0% { left: 40%; top: 70%; transform: scale(1); }
-            25% { left: 80%; top: 40%; transform: scale(0.8); }
-            50% { left: 20%; top: 10%; transform: scale(1.3); }
-            75% { left: 60%; top: 60%; transform: scale(1); }
-            100% { left: 40%; top: 70%; transform: scale(1); }
-        }
-
-        @keyframes blobMove4 {
-            0% { left: 80%; top: 80%; transform: scale(1); }
-            25% { left: 30%; top: 30%; transform: scale(1.1); }
-            50% { left: 70%; top: 50%; transform: scale(0.9); }
-            75% { left: 20%; top: 80%; transform: scale(1.2); }
-            100% { left: 80%; top: 80%; transform: scale(1); }
-        }
-
-        @keyframes blobMove5 {
-            0% { left: 20%; top: 40%; transform: scale(1); }
-            25% { left: 50%; top: 80%; transform: scale(0.7); }
-            50% { left: 80%; top: 30%; transform: scale(1.2); }
-            75% { left: 40%; top: 10%; transform: scale(1); }
-            100% { left: 20%; top: 40%; transform: scale(1); }
-        }
-
-        /* Floating particles */
         .particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1; pointer-events: none; }
         .particle { position: absolute; width: 3px; height: 3px; background: rgba(255, 255, 255, 0.4); border-radius: 50%; animation: floatUp linear infinite; }
         .particle:nth-child(1) { left: 15%; animation-duration: 18s; animation-delay: 0s; width: 5px; height: 5px; }
@@ -117,32 +56,32 @@
         .particle:nth-child(5) { left: 25%; animation-duration: 16s; animation-delay: 5s; width: 4px; height: 4px; }
         .particle:nth-child(6) { left: 85%; animation-duration: 24s; animation-delay: 8s; }
 
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
-        }
+        @keyframes floatUp { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-100vh) scale(1.2); opacity: 0; } }
 
         .hero-content { text-align: center; z-index: 2; padding: 2rem; max-width: 700px; position: relative; }
 
-        /* Profile image - YOUR PHOTO */
+        /* Profile image - OPTIMIZED */
         .profile-img {
             width: 150px; height: 150px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.35);
             object-fit: cover; margin-bottom: 1.5rem;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             transition: transform 0.3s ease;
             background: linear-gradient(135deg, #667eea, #764ba2);
+            /* CRITICAL: Load image immediately */
+            loading: eager;
+            decoding: async;
         }
         .profile-img:hover { transform: scale(1.05); }
 
-        .hero h1 { font-family: 'Inter', 'Tajawal', sans-serif; font-size: 2.8rem; font-weight: 800; color: white; margin-bottom: 0.4rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); letter-spacing: -0.5px; }
+        /* Fallback while image loads */
+        .profile-img[src=""] {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
 
-        /* Title - stacked one under one */
+        .hero h1 { font-family: 'Inter', 'Tajawal', sans-serif; font-size: 2.8rem; font-weight: 800; color: white; margin-bottom: 0.4rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); letter-spacing: -0.5px; }
         .title-stack { margin-bottom: 1.2rem; }
         .title-line { font-family: 'Inter', 'Tajawal', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.8; }
 
-        /* Social links - ABOVE BIO */
         .social-links { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.5rem; }
         .social-btn {
             display: inline-flex; align-items: center; justify-content: center;
@@ -156,7 +95,6 @@
         .social-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.5); }
         .social-btn img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
 
-        /* Bio - SHORT (you will change it) */
         .bio-container {
             max-width: 600px; margin: 0 auto 1.8rem; padding: 1.5rem;
             background: rgba(255,255,255,0.06);
@@ -168,7 +106,6 @@
         .bio-divider { width: 50px; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); margin: 0.8rem auto; border-radius: 2px; }
         .bio-arabic { font-family: 'Tajawal', 'Noto Sans Arabic', sans-serif; font-size: 1.05rem; color: rgba(255,255,255,0.92); line-height: 2; font-weight: 400; direction: rtl; }
 
-        /* Work buttons */
         .hero-work-buttons { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
         .hero-work-btn {
             padding: 0.9rem 2rem;
@@ -182,7 +119,6 @@
         }
         .hero-work-btn:hover { background: white; color: var(--primary); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-color: white; }
 
-        /* Work pages */
         .work-page { display: none; min-height: 100vh; padding: 3rem 1.5rem; max-width: 1200px; margin: 0 auto; animation: fadeIn 0.4s ease; }
         .work-page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
@@ -192,7 +128,6 @@
         .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.3rem; background: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-bottom: 1.5rem; font-family: 'Inter', 'Tajawal', sans-serif; text-decoration: none; }
         .back-btn:hover { background: var(--primary); color: white; transform: translateX(-3px); }
 
-        /* Projects grid */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
         .project-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.35s ease; cursor: pointer; position: relative; }
         .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
@@ -209,7 +144,6 @@
         .project-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--dark); }
         .project-desc { color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
 
-        /* Modal */
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.25s ease; padding: 1.5rem; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-content { background: white; border-radius: 16px; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; transform: scale(0.92); transition: transform 0.25s ease; }
@@ -251,15 +185,12 @@
 
 <!-- ===== HERO SECTION ===== -->
 <section class="hero" id="home">
-
-    <!-- RANDOM MOVING GRADIENT BLOBS -->
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
     <div class="blob blob-4"></div>
     <div class="blob blob-5"></div>
 
-    <!-- Floating particles -->
     <div class="particles">
         <div class="particle"></div><div class="particle"></div><div class="particle"></div>
         <div class="particle"></div><div class="particle"></div><div class="particle"></div>
@@ -267,7 +198,25 @@
 
     <div class="hero-content">
 
-        <!-- [CHANGE 1] YOUR PHOTO -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!--  [CHANGE 1] YOUR PHOTO                                      -->
+        <!--  GitHub raw URLs are SLOW. Use one of these instead:      -->
+        <!--                                                             -->
+        <!--  OPTION A: Upload to Imgur (FASTEST - Recommended)          -->
+        <!--  1. Go to https://imgur.com/upload                          -->
+        <!--  2. Upload your photo                                       -->
+        <!--  3. Right-click image → "Copy image address"                -->
+        <!--  4. Paste that URL below                                    -->
+        <!--                                                             -->
+        <!--  OPTION B: Upload to Postimages                             -->
+        <!--  1. Go to https://postimages.org                            -->
+        <!--  2. Upload your photo                                       -->
+        <!--  3. Copy "Direct link"                                      -->
+        <!--  4. Paste that URL below                                    -->
+        <!--                                                             -->
+        <!--  OPTION C: Keep using GitHub (SLOW)                        -->
+        <!--  Your current URL is below - it will work but be slow         -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
         <img src="https://github.com/maru-lang/maroua.moussaoui/blob/main/IMG_1657.webp?raw=true" 
              alt="Maroua Moussaoui" class="profile-img" id="profileImg">
 
